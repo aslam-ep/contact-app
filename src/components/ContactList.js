@@ -1,15 +1,29 @@
 import ContactCard from "./ContactCard";
+import { Link } from "react-router-dom";
 
 const ContactList = (props) => {
-  const removeContactCard = (id) => {
-    props.removeContactHandler(id);
-  };
-
   const renderContactList = props.contacts.map((contact) => {
-    return <ContactCard contact={contact} clickHandler={removeContactCard} key={contact.id}/>;
+    return (
+      <ContactCard
+        contact={contact}
+        key={contact.id}
+      />
+    );
   });
 
-  return <div className="ui celled list">{renderContactList}</div>;
+  return (
+    <div className="ui celled list">
+      <h2>
+        Contact List
+        <Link to="/add">
+          <button className="ui button blue" style={{ float: "right" }}>
+            Add Contact
+          </button>
+        </Link>
+      </h2>
+      {renderContactList}
+    </div>
+  );
 };
 
 export default ContactList;

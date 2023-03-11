@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { v4 as uuid } from 'uuid';
+import { v4 as uuid } from "uuid";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import "./App.css";
 import Header from "./Header";
 import AddContact from "./AddContact";
 import ContactList from "./ContactList";
+import ContactDetails from "./ContactDetail";
+import DeleteContact from "./DeleteContact";
 
 function App() {
   const LOCAL_STORAGE_KEY = "contacts";
@@ -18,7 +21,7 @@ function App() {
   const removeContactHandler = (id) => {
     const newContactList = contacts.filter((contact) => {
       return contact.id != id;
-    }); 
+    });
 
     setContacts(newContactList);
   };
@@ -38,12 +41,34 @@ function App() {
 
   return (
     <div className="ui container">
-      <Header />
-      <AddContact addContactHandler={addContactHandler} />
-      <ContactList
-        contacts={contacts}
-        removeContactHandler={removeContactHandler}
-      />
+      <Router>
+        <Header />
+        <div className="container" style={{ marginTop: "50px" }}>
+          <Routes>
+            <Route
+              path="/"
+              exact
+              element={<ContactList contacts={contacts} />}
+            />
+
+            <Route
+              path="/add"
+              exact
+              element={<AddContact addContactHandler={addContactHandler} />}
+            />
+
+            <Route path="/contact/:id" exact element={<ContactDetails />} />
+
+            <Route
+              path="/delete-contact/:id"
+              exact
+              element={
+                <DeleteContact removeContactHandler={removeContactHandler} />
+              }
+            />
+          </Routes>
+        </div>
+      </Router>
     </div>
   );
 }

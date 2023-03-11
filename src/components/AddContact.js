@@ -1,6 +1,8 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const AddContact = (props) => {
+  const navigate = useNavigate();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
@@ -18,6 +20,8 @@ const AddContact = (props) => {
 
     setName('');
     setEmail('');
+
+    navigate('/');
   };
 
   return (
