@@ -1,0 +1,24 @@
+{
+  "contacts": [
+    {
+      "id": "2cfe8f02-9372-414f-bdf1-149feb841660",
+      "name": "Aslam",
+      "email": "aslam@gmail.com"
+    },
+    {
+      "id": "cd7fecb9-6a96-4a5d-a417-883aba606745",
+      "name": "Yeju",
+      "email": "yeju@gmail.com"
+    },
+    {
+      "id": "2cfe8f022-9372-414f-bdf1-149feb841660",
+      "name": "Aslam2",
+      "email": "aslam@gmail.com"
+    },
+    {
+      "id": "cd7fecb92-6a96-4a5d-a417-883aba606745",
+      "name": "Yeju2",
+      "email": "yeju@gmail.com"
+    }
+  ]
+}
