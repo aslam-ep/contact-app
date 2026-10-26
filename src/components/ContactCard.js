@@ -1,11 +1,15 @@
-import user from "../images/user.png";
+import defaultUser from "../images/user.png";
 import { Link } from "react-router-dom";
 
 const ContactCard = (props) => {
-  const { id, name, email } = props.contact;
+  const { id, name, email, avatar } = props.contact;
   return (
     <div className="item">
-      <img className="ui avatar image" src={user} alt="user" />
+      <img 
+        className="ui avatar image" 
+        src={avatar || defaultUser} 
+        alt="user" 
+      />
 
       <div className="content">
         <Link to={`/contact/${id}`} state={{ contact: props.contact }}>
